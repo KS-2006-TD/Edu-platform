@@ -1,0 +1,45 @@
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f9fafb;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.topbar nav a {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topbar nav a:hover {
+  color: #2563eb;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
