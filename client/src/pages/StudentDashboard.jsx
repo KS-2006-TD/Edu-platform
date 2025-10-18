@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Dashboard.css";
+import "./dashboard.css";
 
 export default function StudentDashboard({ user }) {
   const [allCourses, setAllCourses] = useState([]);
