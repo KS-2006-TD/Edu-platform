@@ -4,7 +4,7 @@ import CreateCourseModal from "../components/CreateCourseModal";
 import MaterialUploadModal from "../components/MaterialUploadModal";
 import AssignmentModal from "../components/AssignmentModal";
 import StudentList from "../components/StudentList";
-import "./Dashboard.css";
+import "./dashboard.css";
 
 export default function TeacherDashboard({ user }) {
   const [courses, setCourses] = useState([]);
