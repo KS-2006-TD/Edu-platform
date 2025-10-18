@@ -26,11 +26,19 @@ export default function MaterialUploadModal({ course, onClose, onUploaded }) {
       if (pdfFile) form.append('pdf', pdfFile);
       if (youtube) form.append('youtube', youtube);
 
+      const API_URL = import.meta.env.VITE_API_URL;
+
       await axios.post(
-        `http://localhost:5000/api/courses/${course._id}/materials`,
+        `${API_URL}/api/courses/${course._id}/materials`,
         form,
-        { headers: { 'Content-Type': 'multipart/form-data', Authorization: token ? 'Bearer ' + token : '' } }
-      );
+       {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: token ? `Bearer ${token}` : '',
+         },
+       }
+     );
+
 
       setLoading(false);
       onUploaded && onUploaded();

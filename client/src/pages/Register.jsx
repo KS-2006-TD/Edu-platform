@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import './register.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import "./register.css";
 
 export default function Register() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('Student');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("Student");
   const navigate = useNavigate();
+
+  // ✅ Use environment variable or fallback to localhost
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { name, email, password, role });
-      alert('Registration successful! You can now login.');
-      navigate('/login');
+      await axios.post(`${API_URL}/api/auth/register`, {
+        name,
+        email,
+        password,
+        role,
+      });
+      alert("🎉 Registration successful! You can now log in.");
+      navigate("/login");
     } catch (err) {
-      alert('Registration failed. Try again.');
+      console.error("❌ Registration failed:", err);
+      alert("Registration failed. Please check your details and try again.");
     }
   };
 
@@ -25,7 +34,10 @@ export default function Register() {
     <div className="register-container">
       <div className="register-card">
         <h2 className="register-title">Create an Account ✨</h2>
-        <p className="register-subtitle">Join EduTile and start your learning journey</p>
+        <p className="register-subtitle">
+          Join EduTile and start your learning journey
+        </p>
+
         <form onSubmit={handleRegister} className="register-form">
           <input
             type="text"
@@ -34,6 +46,7 @@ export default function Register() {
             onChange={(e) => setName(e.target.value)}
             required
           />
+
           <input
             type="email"
             placeholder="Email Address"
@@ -41,6 +54,7 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+
           <input
             type="password"
             placeholder="Password"
@@ -48,12 +62,15 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
           <select value={role} onChange={(e) => setRole(e.target.value)}>
             <option value="Student">Student</option>
             <option value="Teacher">Teacher</option>
           </select>
+
           <button type="submit">Register</button>
         </form>
+
         <p className="login-link">
           Already have an account? <Link to="/login">Login</Link>
         </p>
