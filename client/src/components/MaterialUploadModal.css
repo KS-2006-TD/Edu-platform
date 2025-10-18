@@ -1,93 +1,103 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 2000;
+  align-items: center;
+  z-index: 999;
 }
 
-.modal-card {
-  background: #fff;
-  padding: 2rem;
-  width: 90%;
-  max-width: 450px;
-  border-radius: 1.2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.modal-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
 }
 
-.modal-title {
+.modal-container h2 {
   text-align: center;
-  margin-bottom: 1.2rem;
-  color: #2b2b2b;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.4rem;
 }
 
-.modal-form {
+.upload-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
 }
 
-.modal-form label {
-  font-size: 0.9rem;
+.upload-form label {
   font-weight: 600;
   color: #333;
 }
 
-.modal-form input,
-.modal-form textarea {
-  padding: 0.8rem;
-  border-radius: 0.5rem;
+.upload-form input,
+.upload-form textarea {
   border: 1px solid #ccc;
-  font-size: 0.95rem;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.upload-form input:focus,
+.upload-form textarea:focus {
+  border-color: #3b82f6;
   outline: none;
-  transition: border-color 0.2s ease;
 }
 
-.modal-form input:focus,
-.modal-form textarea:focus {
-  border-color: #0077ff;
-}
-
-.modal-form textarea {
+.upload-form textarea {
   resize: none;
-  min-height: 80px;
+  height: 80px;
 }
 
-.modal-actions {
+.button-row {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
   border: none;
-  transition: background 0.3s ease, transform 0.2s ease;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s ease;
 }
 
-.btn.primary {
-  background-color: #0077ff;
+.btn.upload {
+  background-color: #3b82f6;
   color: white;
 }
 
-.btn.primary:hover {
-  background-color: #005fcb;
-  transform: translateY(-1px);
+.btn.upload:hover {
+  background-color: #2563eb;
 }
 
-.btn.secondary {
-  background-color: #e0e0e0;
-  color: #333;
+.btn.cancel {
+  background-color: #e5e7eb;
+  color: #111827;
 }
 
-.btn.secondary:hover {
-  background-color: #d5d5d5;
-  transform: translateY(-1px);
+.btn.cancel:hover {
+  background-color: #d1d5db;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
