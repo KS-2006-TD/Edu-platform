@@ -1,48 +1,47 @@
 import React from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Course from "./pages/Course";
-import Sidebar from "./components/Sidebar";
 import "./App.css";
 
-export default function App() {
-  const location = useLocation();
-  const isAuthPage = ["/login", "/register"].includes(location.pathname);
-  const isLoggedIn = localStorage.getItem("token");
-
+function App() {
   return (
-    <div className="app">
-      {!isAuthPage && isLoggedIn && <Sidebar />}
+    <div className="login-page">
+      <nav className="navbar">
+        <div className="logo">EduMe</div>
+        <div className="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Dashboard</a>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+      </nav>
 
       <div className="main-content">
-        <header className="topbar">
-          <div className="logo">EduTile</div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/dashboard">Dashboard</Link>
-            {!isLoggedIn && (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-              </>
-            )}
-          </nav>
-        </header>
+        <div className="left-section">
+          <h1>EduMe</h1>
+          <p>
+            Empowering teachers and students with smart, easy-to-use tools for
+            learning.
+          </p>
+        </div>
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/course/:id" element={<Course />} />
-          </Routes>
-        </main>
+        <div className="right-section">
+          <div className="login-card">
+            <h2>Welcome Back 👋</h2>
+            <p>Log in to continue your journey</p>
+
+            <form>
+              <input type="email" placeholder="Email address" required />
+              <input type="password" placeholder="Password" required />
+              <button type="submit">Login</button>
+            </form>
+
+            <p className="register-text">
+              New here? <a href="#">Create an account</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
+export default App;
