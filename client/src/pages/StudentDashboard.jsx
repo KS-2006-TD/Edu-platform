@@ -11,12 +11,22 @@ export default function StudentDashboard({ user }) {
   const [assignments, setAssignments] = useState([]);
   const [loadingDetails, setLoadingDetails] = useState(false);
 
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
-  const token = localStorage.getItem("token");
-  const enrollments = await axios.get(`${import.meta.env.VITE_API_URL}/api/enrollments/mine`, {
-     headers: { Authorization: token ? "Bearer " + token : "" }
-     } );
+  // ✅ Fetch courses & enrolled courses
+  const fetchCourses = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
+      setAllCourses(res.data);
 
+      const token = localStorage.getItem("token");
+      const enrollments = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/enrollments/mine`,
+        { headers: { Authorization: token ? "Bearer " + token : "" } }
+      );
+      setEnrolledCourses(enrollments.data.map((e) => e.course));
+    } catch (err) {
+      console.error("Error fetching student courses:", err);
+    }
+  };
 
   useEffect(() => {
     fetchCourses();
@@ -29,10 +39,10 @@ export default function StudentDashboard({ user }) {
       const token = localStorage.getItem("token");
 
       const [matRes, assignRes] = await Promise.allSettled([
-        axios.get(`http://localhost:5000/api/courses/${courseId}/materials`, {
+        axios.get(`${import.meta.env.VITE_API_URL}/api/courses/${courseId}/materials`, {
           headers: { Authorization: "Bearer " + token },
         }),
-        axios.get(`http://localhost:5000/api/courses/${courseId}/assignments`, {
+        axios.get(`${import.meta.env.VITE_API_URL}/api/courses/${courseId}/assignments`, {
           headers: { Authorization: "Bearer " + token },
         }),
       ]);
@@ -46,12 +56,13 @@ export default function StudentDashboard({ user }) {
     }
   };
 
+  // ✅ Enroll in a course
   const handleEnroll = async (courseId) => {
     try {
       setLoadingEnroll(courseId);
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/enrollments/${courseId}`,
+        `${import.meta.env.VITE_API_URL}/api/enrollments/${courseId}`,
         {},
         { headers: { Authorization: "Bearer " + token } }
       );
@@ -63,7 +74,7 @@ export default function StudentDashboard({ user }) {
     }
   };
 
-  const isEnrolled = (id) => enrolledCourses.some(c => c._id === id);
+  const isEnrolled = (id) => enrolledCourses.some((c) => c._id === id);
 
   const logout = () => {
     localStorage.clear();
@@ -84,7 +95,9 @@ export default function StudentDashboard({ user }) {
       <header className="dashboard-header">
         <h1>Student Dashboard</h1>
         <div className="user-info">
-          <span>{user.name} ({user.role})</span>
+          <span>
+            {user.name} ({user.role})
+          </span>
           <button onClick={logout}>Logout</button>
         </div>
       </header>
@@ -92,7 +105,7 @@ export default function StudentDashboard({ user }) {
       <section className="courses-section">
         <h2>All Courses</h2>
         <div className="course-grid">
-          {allCourses.map(course => (
+          {allCourses.map((course) => (
             <div
               key={course._id}
               className="course-card"
@@ -123,7 +136,7 @@ export default function StudentDashboard({ user }) {
       <section className="my-courses-section">
         <h2>Enrolled Courses</h2>
         <div className="course-grid">
-          {enrolledCourses.map(course => (
+          {enrolledCourses.map((course) => (
             <div
               key={course._id}
               className="course-card my-course"
@@ -170,7 +183,8 @@ export default function StudentDashboard({ user }) {
                     {assignments.map((a) => (
                       <li key={a._id}>
                         <strong>{a.title}</strong>{" "}
-                        {a.dueDate && `— Due: ${new Date(a.dueDate).toLocaleDateString()}`}
+                        {a.dueDate &&
+                          `— Due: ${new Date(a.dueDate).toLocaleDateString()}`}
                       </li>
                     ))}
                   </ul>
