@@ -1,88 +1,110 @@
-body {
-  background: #f3f4f6;
-  font-family: 'Inter', sans-serif;
-}
-
-.register-container {
-  height: 100vh;
+/* login.css */
+.login-wrapper {
   display: flex;
-  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Left Gradient Panel */
+.login-side {
+  flex: 1;
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+  color: white;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 60px;
 }
 
-.register-card {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 380px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.register-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.register-title {
-  font-size: 1.8rem;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.register-subtitle {
-  font-size: 0.9rem;
-  color: #6b7280;
+.brand-title {
+  font-size: 48px;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
-.register-form input,
-.register-form select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+.brand-text {
+  font-size: 18px;
+  max-width: 400px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Right Form Panel */
+.login-form-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6fa;
+}
+
+.login-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 40px 50px;
+  width: 380px;
+  text-align: center;
+}
+
+.login-card h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-card input {
+  padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #ccc;
   outline: none;
-  font-size: 0.95rem;
-  transition: 0.2s;
+  font-size: 15px;
 }
 
-.register-form input:focus,
-.register-form select:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+.login-card input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
 }
 
-.register-form button {
-  width: 100%;
-  background: #3b82f6;
+.login-card button {
+  background: linear-gradient(135deg, #007bff, #6f42c1);
   color: white;
-  font-weight: 600;
+  padding: 12px;
   border: none;
   border-radius: 10px;
-  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: 0.3s ease;
 }
 
-.register-form button:hover {
-  background: #2563eb;
+.login-card button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 
-.login-link {
-  font-size: 0.9rem;
-  margin-top: 15px;
-  color: #4b5563;
+.register-link {
+  margin-top: 18px;
+  font-size: 14px;
 }
 
-.login-link a {
-  color: #3b82f6;
+.register-link a {
+  color: #6f42c1;
   text-decoration: none;
   font-weight: 500;
 }
 
-.login-link a:hover {
+.register-link a:hover {
   text-decoration: underline;
 }
