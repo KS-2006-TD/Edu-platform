@@ -1,150 +1,88 @@
-/* 🌈 Modern Register Page Styling */
-.register-page {
-  display: flex;
+body {
+  background: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-container {
   height: 100vh;
-  background-color: #f5f7fb;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Left Side */
-.register-left {
-  flex: 1;
-  background: linear-gradient(135deg, #007bff, #7a00ff);
-  color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 5rem;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-}
-
-.register-left h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-}
-
-.register-left p {
-  font-size: 1.2rem;
-  max-width: 400px;
-  line-height: 1.6;
-}
-
-/* Right Side */
-.register-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-/* Card */
 .register-card {
   background: white;
-  padding: 3rem 2.5rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   width: 380px;
   text-align: center;
-  animation: fadeIn 0.8s ease;
+  transition: all 0.3s ease;
 }
 
-.register-card h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #222;
+.register-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.register-card p {
-  color: #666;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+.register-title {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 8px;
 }
 
-/* Form */
-.register-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.register-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 20px;
 }
 
-.register-card input,
-.register-card select {
-  padding: 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.2s;
-}
-
-.register-card input:focus,
-.register-card select:focus {
-  border-color: #007bff;
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
   outline: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
 }
 
-.register-card button {
-  padding: 0.9rem;
-  background: linear-gradient(135deg, #007bff, #7a00ff);
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.register-form button {
+  width: 100%;
+  background: #3b82f6;
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s ease;
 }
 
-.register-card button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+.register-form button:hover {
+  background: #2563eb;
 }
 
-/* Login link */
 .login-link {
-  margin-top: 1.2rem;
-  color: #555;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  color: #4b5563;
 }
 
 .login-link a {
-  color: #007bff;
+  color: #3b82f6;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .login-link a:hover {
   text-decoration: underline;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .register-page {
-    flex-direction: column;
-  }
-
-  .register-left {
-    border-radius: 0;
-    align-items: center;
-    text-align: center;
-  }
-
-  .register-card {
-    width: 90%;
-    margin: 2rem auto;
-  }
 }
