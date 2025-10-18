@@ -14,7 +14,7 @@ export default function StudentDashboard({ user }) {
   // ✅ Fetch courses & enrolled courses
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("https:/https://edu-platform-kazl.onrender.com/api/courses");
+      const res = await axios.get("https://edu-platform-kazl.onrender.com/api/courses");
 
       setAllCourses(res.data);
 
