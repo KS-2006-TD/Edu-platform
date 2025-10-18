@@ -19,14 +19,15 @@ export default function TeacherDashboard({ user }) {
   // Fetch teacher courses
   // =============================
   const fetchCourses = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/api/courses");
-      const mine = res.data.filter((c) => c.teacher?._id === user.id);
-      setCourses(mine);
-    } catch (err) {
-      console.error("❌ Error fetching teacher courses:", err);
-    }
-  };
+  try {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
+    const mine = res.data.filter((c) => c.teacher?._id === user.id);
+    setCourses(mine);
+  } catch (err) {
+    console.error("❌ Error fetching teacher courses:", err);
+  }
+};
+
 
   useEffect(() => {
     fetchCourses();
