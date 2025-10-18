@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.topbar {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.topbar nav a {
+  color: white;
+  margin-left: 15px;
+}
+
+.topbar nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+}
