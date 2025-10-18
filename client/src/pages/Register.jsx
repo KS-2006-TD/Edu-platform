@@ -10,7 +10,6 @@ export default function Register() {
   const [role, setRole] = useState("Student");
   const navigate = useNavigate();
 
-  // ✅ Use environment variable or fallback to localhost
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const handleRegister = async (e) => {
@@ -31,49 +30,61 @@ export default function Register() {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-card">
-        <h2 className="register-title">Create an Account ✨</h2>
-        <p className="register-subtitle">
-          Join EduTile and start your learning journey
+    <div className="register-page">
+      <div className="register-left">
+        <h1>EduMe</h1>
+        <p>
+          Empowering teachers and students with smart, easy-to-use tools for
+          learning.
         </p>
+      </div>
 
-        <form onSubmit={handleRegister} className="register-form">
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+      <div className="register-right">
+        <div className="register-card">
+          <h2>Create an Account ✨</h2>
+          <p>Join EduMe and start your learning journey</p>
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <form onSubmit={handleRegister}>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="Student">Student</option>
-            <option value="Teacher">Teacher</option>
-          </select>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-          <button type="submit">Register</button>
-        </form>
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="Student">Student</option>
+              <option value="Teacher">Teacher</option>
+            </select>
 
-        <p className="login-link">
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
+            <button type="submit">Register</button>
+          </form>
+
+          <p className="login-link">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
