@@ -1,47 +1,38 @@
 import React from "react";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import "./App.css";
 
-function App() {
+export default function App() {
+  const navigate = useNavigate();
+
   return (
     <div className="login-page">
+      {/* ✅ Navbar */}
       <nav className="navbar">
-        <div className="logo">EduMe</div>
+        <div className="logo" onClick={() => navigate("/")}>
+          EduMe
+        </div>
         <div className="nav-links">
-          <a href="#">Home</a>
-          <a href="#">Dashboard</a>
-          <a href="#">Login</a>
-          <a href="#">Register</a>
+          <Link to="/">Home</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
         </div>
       </nav>
 
+      {/* ✅ Page Content */}
       <div className="main-content">
-        <div className="left-section">
-          <h1>EduMe</h1>
-          <p>
-            Empowering teachers and students with smart, easy-to-use tools for
-            learning.
-          </p>
-        </div>
-
-        <div className="right-section">
-          <div className="login-card">
-            <h2>Welcome Back 👋</h2>
-            <p>Log in to continue your journey</p>
-
-            <form>
-              <input type="email" placeholder="Email address" required />
-              <input type="password" placeholder="Password" required />
-              <button type="submit">Login</button>
-            </form>
-
-            <p className="register-text">
-              New here? <a href="#">Create an account</a>
-            </p>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </div>
     </div>
   );
 }
-
-export default App;
