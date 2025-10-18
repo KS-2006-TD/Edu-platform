@@ -11,22 +11,12 @@ export default function StudentDashboard({ user }) {
   const [assignments, setAssignments] = useState([]);
   const [loadingDetails, setLoadingDetails] = useState(false);
 
-  // ✅ Fetch all + enrolled courses
-  const fetchCourses = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/api/courses");
-      setAllCourses(res.data);
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
+  const token = localStorage.getItem("token");
+  const enrollments = await axios.get(`${import.meta.env.VITE_API_URL}/api/enrollments/mine`, {
+     headers: { Authorization: token ? "Bearer " + token : "" }
+     } );
 
-      const token = localStorage.getItem("token");
-      const enrollments = await axios.get(
-        "http://localhost:5000/api/enrollments/mine",
-        { headers: { Authorization: token ? "Bearer " + token : "" } }
-      );
-      setEnrolledCourses(enrollments.data.map(e => e.course));
-    } catch (err) {
-      console.error("Error fetching student courses:", err);
-    }
-  };
 
   useEffect(() => {
     fetchCourses();
