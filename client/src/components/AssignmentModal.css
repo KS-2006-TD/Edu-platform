@@ -1,0 +1,6 @@
+.assign-overlay{position:fixed;inset:0;background:rgba(2,6,23,0.35);display:flex;align-items:center;justify-content:center;z-index:60}
+.assign-card{width:520px;background:#fff;border-radius:12px;padding:18px}
+.assign-card input,.assign-card textarea{width:100%;padding:10px;margin-bottom:8px;border:1px solid #e6edf3;border-radius:8px}
+.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:#2563eb;color:#fff}
+.btn.ghost{background:transparent;border:1px solid #cbd5e1}

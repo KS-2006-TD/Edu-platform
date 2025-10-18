@@ -1,0 +1,8 @@
+.studentlist-overlay{position:fixed;inset:0;background:rgba(2,6,23,0.35);display:flex;align-items:center;justify-content:center;z-index:60}
+.studentlist-card{width:780px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(2,6,23,0.12)}
+.studentlist-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.studentlist-body{max-height:420px;overflow:auto}
+.student-row{display:flex;justify-content:space-between;padding:12px;border-radius:8px;border:1px solid #f1f5f9;margin-bottom:8px}
+.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:#2563eb;color:#fff}
+.btn.ghost{background:transparent;border:1px solid #cbd5e1;color:#111}
+.small{font-size:12px;color:#64748b}

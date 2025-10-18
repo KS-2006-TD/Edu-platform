@@ -1,0 +1,13 @@
+.ccmodal-overlay{
+  position:fixed;inset:0;background:rgba(2,6,23,0.35);display:flex;align-items:center;justify-content:center;z-index:60;
+}
+.ccmodal-card{
+  background:#fff;border-radius:12px;padding:22px;width:420px;box-shadow:0 10px 30px rgba(2,6,23,0.12);
+}
+.ccmodal-form input, .ccmodal-form textarea{
+  width:100%;padding:10px;border:1px solid #e6edf3;border-radius:8px;margin-bottom:10px;font-size:14px;
+}
+.ccmodal-actions{display:flex;gap:8px;justify-content:flex-end}
+.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:#2563eb;color:white}
+.btn.ghost{background:transparent;border:1px solid #cbd5e1}
