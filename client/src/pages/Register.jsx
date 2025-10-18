@@ -13,8 +13,9 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/register`, { name, email, password, role });
-      alert('Registration successful! You can now login.');
+      await axios.post("https://edu-platform-kazl.onrender.com/api/auth/register",{ name, email, password, role });
+      alert("Registration successful! You can now login.");
+
       navigate('/login');
     } catch (err) {
       alert('Registration failed. Try again.');
