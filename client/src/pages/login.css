@@ -1,11 +1,12 @@
 body {
-  background: #f3f4f6;
-  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #eef2ff, #e0e7ff);
+  font-family: "Inter", sans-serif;
 }
 
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -13,28 +14,27 @@ body {
 .login-card {
   background: white;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 360px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  width: 380px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .login-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
 }
 
 .login-title {
   font-size: 1.8rem;
   color: #1e293b;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .login-subtitle {
   font-size: 0.9rem;
   color: #6b7280;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .login-form input {
@@ -44,8 +44,6 @@ body {
   border-radius: 10px;
   border: 1px solid #d1d5db;
   outline: none;
-  font-size: 0.95rem;
-  transition: 0.2s;
 }
 
 .login-form input:focus {
@@ -62,25 +60,23 @@ body {
   border-radius: 10px;
   padding: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .login-form button:hover {
   background: #2563eb;
 }
 
-.register-link {
-  font-size: 0.9rem;
-  margin-top: 15px;
-  color: #4b5563;
+.register-section {
+  margin-top: 40px;
+  text-align: center;
 }
 
-.register-link a {
+.register-section a {
   color: #3b82f6;
-  text-decoration: none;
   font-weight: 500;
+  text-decoration: none;
 }
 
-.register-link a:hover {
+.register-section a:hover {
   text-decoration: underline;
 }
